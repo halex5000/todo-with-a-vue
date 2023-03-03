@@ -4,38 +4,38 @@
       <v-img
         contain
         height="300"
-        src="@/assets/logo.svg"
+        src="@/assets/logo.png"
       />
-
+      <br/>
       <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
 
-      <h1 class="text-h2 font-weight-bold">Vuetify</h1>
+      <h1 class="text-h2 font-weight-bold">Dark Launching with a Vue</h1>
 
       <div class="py-14" />
 
       <v-row class="d-flex align-center justify-center">
         <v-col cols="auto">
           <v-btn
-            href="https://next.vuetifyjs.com/components/all/"
+            href="https://docs.launchdarkly.com/sdk/client-side"
             min-width="164"
             rel="noopener noreferrer"
             target="_blank"
             variant="text"
           >
             <v-icon
-              icon="mdi-view-dashboard"
-              size="large"
+              icon="mdi-code-braces-box"
+              size="xx-large"
               start
             />
 
-            Components
+            SDKs
           </v-btn>
         </v-col>
 
         <v-col cols="auto">
           <v-btn
             color="primary"
-            href="https://next.vuetifyjs.com/introduction/why-vuetify/#feature-guides"
+            href="https://academy.launchdarkly.com/"
             min-width="228"
             rel="noopener noreferrer"
             size="x-large"
@@ -43,30 +43,30 @@
             variant="flat"
           >
             <v-icon
-              icon="mdi-speedometer"
-              size="large"
+              icon="mdi-school"
+              size="xx-large"
               start
             />
 
-            Get Started
+            LaunchDarkly Academy
           </v-btn>
         </v-col>
 
         <v-col cols="auto">
           <v-btn
-            href="https://community.vuetifyjs.com/"
+            href="https://docs.launchdarkly.com/home"
             min-width="164"
             rel="noopener noreferrer"
             target="_blank"
             variant="text"
           >
             <v-icon
-              icon="mdi-account-group"
-              size="large"
+              icon="mdi-text-box-search"
+              size="xx-large"
               start
             />
 
-            Community
+            Docs
           </v-btn>
         </v-col>
       </v-row>
