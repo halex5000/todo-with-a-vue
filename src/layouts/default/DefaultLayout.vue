@@ -4,7 +4,7 @@
     <default-drawer />
     <default-view />
   </v-app>
-  <v-app>
+  <v-app v-else>
     <h1>Something went wrong initializing</h1>
   </v-app>
 </template>

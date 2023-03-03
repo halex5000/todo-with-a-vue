@@ -2,7 +2,9 @@
   <v-navigation-drawer expand-on-hover rail>
     <v-list>
       <v-list-item
-        v-if="login"
+        v-if="isLoginEnabled"
+        prepend-icon="mdi-account-box"
+        title="Login"
       >
       </v-list-item>
     </v-list>
@@ -21,4 +23,5 @@
 <script setup>
   import { useLDFlag } from 'launchdarkly-vue-client-sdk'
   const isToDoListEnabled = useLDFlag('to-do-list')
+  const isLoginEnabled = useLDFlag('login')
 </script>
