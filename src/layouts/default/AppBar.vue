@@ -1,6 +1,6 @@
 <template>
   <v-app-bar>
-    <v-app-bar-title v-if="isLaunchDarklyReady">
+    <v-app-bar-title v-if="props.isLaunchDarklyReady">
       <v-icon icon="mdi-flag" />
       Powered by LaunchDarkly
     </v-app-bar-title>
@@ -12,6 +12,5 @@
 </template>
 
 <script setup>
-  import { useLDReady } from 'launchdarkly-vue-client-sdk'
-  const isLaunchDarklyReady = useLDReady()
+  const props = defineProps(['isLaunchDarklyReady'])
 </script>
