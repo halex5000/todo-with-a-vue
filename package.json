@@ -16,12 +16,16 @@
     "launchdarkly-vue-client-sdk": "^1.2.1",
     "pinia": "^2.0.23",
     "roboto-fontface": "*",
+    "ua-parser-js": "^1.0.34",
     "vue": "^3.2.13",
+    "vue-json-pretty": "^2.2.3",
     "vue-router": "^4.0.0",
+    "vuedraggable": "^4.1.0",
     "vuetify": "^3.0.0",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
+    "@types/ua-parser-js": "^0.7.36",
     "@vitejs/plugin-vue": "^3.0.3",
     "eslint": "^8.22.0",
     "eslint-plugin-vue": "^9.3.0",
