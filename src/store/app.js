@@ -1,6 +1,10 @@
 // Utilities
 import { defineStore } from 'pinia'
 
+const starterTodos = [
+  {title: 'Create a Vue ToDo Application', description: 'We need a new Vue application to keep track of ToDos'}
+]
+
 export const useAppStore = defineStore('app', {
   state: () => ({
     browser: null,
@@ -10,6 +14,7 @@ export const useAppStore = defineStore('app', {
     cpu: null,
     userAgent: null,
     count: 0,
+    todos: starterTodos,
   }),
   getters: {
     allState: (state) => {
@@ -24,14 +29,14 @@ export const useAppStore = defineStore('app', {
           value
         }
       })
-      console.log('non-function entries', entries);
+      // console.debug('non-function entries', entries);
       return entries;
     }
   },
   actions: {
     addBrowserInfo(browserInfo) {
       const {browser, engine, ua, os, device, cpu} = browserInfo;
-      console.log('captured browser info', browserInfo)
+      // console.log('captured browser info', browserInfo)
       this.browser = browser;
       this.engine = engine;
       this.userAgent = ua;
@@ -46,5 +51,8 @@ export const useAppStore = defineStore('app', {
     randomizeCounter() {
       this.count = Math.round(100 * Math.random())
     },
+    addTodo(todo) {
+      this.todos.push(todo);
+    }
   }
 })

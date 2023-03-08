@@ -9,5 +9,5 @@ const parser = new UAParser();
 const browserInfo = parser.getResult();
 const store = useAppStore();
 store.addBrowserInfo(browserInfo);
-console.debug("captured browser info", browserInfo);
+// console.debug("captured browser info", browserInfo);
 </script>
