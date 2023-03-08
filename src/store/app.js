@@ -1,11 +1,66 @@
 // Utilities
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
 
 const starterTodos = [
-  {title: 'Create a Vue ToDo Application', description: 'We need a new Vue application to keep track of ToDos'}
-]
+  {
+    title: "Create a Vue ToDo Application",
+    description: "We need a new Vue application to keep track of ToDos",
+    isComplete: false,
+  },
+  {
+    title: "Capture browser info",
+    description:
+      "To support debugging and advanced targeting, we need to be able to capture browser info",
+    isComplete: false,
+  },
+  {
+    title: "Create a base list of ToDos",
+    description: "Our project roadmap should be in our ToDo list",
+    isComplete: false,
+  },
+  {
+    title: "Provide the ability to Login",
+    description:
+      "To support delivering features to specific users, we need them to be able to login",
+    isComplete: false,
+  },
+  {
+    title: "Support ToDo item creation",
+    description: "Users will need to be able to add their own ToDo list items",
+    isComplete: false,
+  },
+  {
+    title: "Support ToDo item deletion",
+    description: "Users may want to delete ToDo items at times",
+    isComplete: false,
+  },
+  {
+    title: "Validate input when creating a ToDo item",
+    description:
+      "To get meaningful data, we'll need some validation on user input",
+    isComplete: false,
+  },
+  {
+    title: "Support local storage of ToDo list",
+    description:
+      "Users want persistent ToDo lists and local storage could help support this",
+    isComplete: false,
+  },
+  {
+    title: "Support remote storage of ToDo List",
+    description:
+      "Users may want persistent ToDo lists across their devices and to support mobile, we'll need a remote storage facility for ToDo items",
+    isComplete: false,
+  },
+  {
+    title: "Migrate to trusted auth provider",
+    description:
+      "A trusted auth provider will give us a common mechanism for login and allow us to partition users' lists from one another",
+    isComplete: false,
+  },
+];
 
-export const useAppStore = defineStore('app', {
+export const useAppStore = defineStore("app", {
   state: () => ({
     browser: null,
     engine: null,
@@ -18,24 +73,30 @@ export const useAppStore = defineStore('app', {
   }),
   getters: {
     allState: (state) => {
-      const stateEntries = Object.entries(state)
-      const entries = stateEntries.filter(entry => {
-        const [key, value] = entry;
-        return typeof value !== 'function' && key.match(/^[a-zA-Z0-9]/i) && !key.startsWith('allState')
-      }).map(entry => {
-        const [key, value] = entry;
-        return {
-          key,
-          value
-        }
-      })
+      const stateEntries = Object.entries(state);
+      const entries = stateEntries
+        .filter((entry) => {
+          const [key, value] = entry;
+          return (
+            typeof value !== "function" &&
+            key.match(/^[a-zA-Z0-9]/i) &&
+            !key.startsWith("allState")
+          );
+        })
+        .map((entry) => {
+          const [key, value] = entry;
+          return {
+            key,
+            value,
+          };
+        });
       // console.debug('non-function entries', entries);
       return entries;
-    }
+    },
   },
   actions: {
     addBrowserInfo(browserInfo) {
-      const {browser, engine, ua, os, device, cpu} = browserInfo;
+      const { browser, engine, ua, os, device, cpu } = browserInfo;
       // console.log('captured browser info', browserInfo)
       this.browser = browser;
       this.engine = engine;
@@ -45,14 +106,14 @@ export const useAppStore = defineStore('app', {
       this.cpu = cpu;
     },
     increment() {
-      this.count++
-      console.log('updated count is', this.count);
+      this.count++;
+      console.log("updated count is", this.count);
     },
     randomizeCounter() {
-      this.count = Math.round(100 * Math.random())
+      this.count = Math.round(100 * Math.random());
     },
     addTodo(todo) {
       this.todos.push(todo);
-    }
-  }
-})
+    },
+  },
+});

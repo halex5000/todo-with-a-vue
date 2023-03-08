@@ -21,6 +21,7 @@
             <v-list-item-title>{{ todo.title }}</v-list-item-title>
             <v-list-item-subtitle>{{ todo.description }}</v-list-item-subtitle>
           </v-list-item>
+          <v-divider></v-divider>
         </v-list>
       </v-card>
     </v-responsive>
