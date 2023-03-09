@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer
     expand-on-hover
-    rail
+    :rail="!dialog"
     v-if="isLoginEnabled || isToDoListEnabled"
   >
     <v-list>
@@ -16,23 +16,40 @@
     <v-list>
       <v-list-item
         v-if="isLoginEnabled"
-        prepend-icon="mdi-account-box"
-        title="Login"
-        subtitle="Login to unlock features!"
+        :prepend-icon="store.user ? 'mdi-account-cancel' : 'mdi-account-box'"
+        :title="store.user ? 'Welcome' : 'Login'"
+        :subtitle="
+          store.user
+            ? `Logged in as ${store.user.username}`
+            : 'Login to unlock features!'
+        "
       >
         <v-menu
           v-model="dialog"
           activator="parent"
           :close-on-content-click="false"
+          location="end"
         >
-          <v-sheet width="500" class="mx-auto">
+          <v-sheet :width="store.user ? -1 : 500" class="mx-auto">
             <v-form @submit.prevent>
-              <v-toolbar color="primary">
-                <v-toolbar-title class="text-h5">Login</v-toolbar-title>
+              <v-toolbar color="primary" v-if="!store.user">
+                <v-toolbar-title class="text-h5">"Login"</v-toolbar-title>
                 <v-spacer></v-spacer
               ></v-toolbar>
               <v-container>
-                <v-row>
+                <v-row v-if="store.user"
+                  ><v-col>
+                    <v-btn
+                      type="submit"
+                      color="warning"
+                      class="mt-2"
+                      @click="logout()"
+                    >
+                      Logout
+                    </v-btn></v-col
+                  ></v-row
+                >
+                <v-row v-if="!store.user">
                   <v-col cols="12" md="12">
                     <v-text-field
                       v-model="username"
@@ -51,7 +68,7 @@
                       color="primary"
                       block
                       class="mt-2"
-                      @click="save()"
+                      @click="login()"
                     >
                       Login
                     </v-btn>
@@ -78,6 +95,7 @@
 
 <script setup>
 import { useLDFlag } from "launchdarkly-vue-client-sdk";
+import { useAppStore } from "@/store/app";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 
@@ -89,5 +107,20 @@ const username = ref();
 const password = ref();
 const secret = ref(true);
 
-const login = () => {};
+const store = useAppStore();
+const login = () => {
+  dialog.value = false;
+  setTimeout(() => {
+    store.login({ username: username.value });
+    username.value = null;
+    password.value = null;
+  }, 100);
+};
+
+const logout = () => {
+  dialog.value = false;
+  setTimeout(() => {
+    store.logout();
+  }, 100);
+};
 </script>

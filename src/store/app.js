@@ -80,6 +80,7 @@ export const useAppStore = defineStore("app", {
     userAgent: null,
     count: 0,
     todos: [...starterTodos],
+    user: null,
   }),
   getters: {
     sortedTodos: (state) =>
@@ -123,6 +124,15 @@ export const useAppStore = defineStore("app", {
     increment() {
       this.count++;
       console.log("updated count is", this.count);
+    },
+    login({ username }) {
+      console.log("logging in as", username);
+      this.user = {
+        username,
+      };
+    },
+    logout() {
+      this.user = null;
     },
     randomizeCounter() {
       this.count = Math.round(100 * Math.random());
