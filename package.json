@@ -14,6 +14,7 @@
     "@mdi/font": "7.0.96",
     "core-js": "^3.8.3",
     "launchdarkly-vue-client-sdk": "^1.2.1",
+    "nanoid": "^4.0.1",
     "pinia": "^2.0.23",
     "roboto-fontface": "*",
     "ua-parser-js": "^1.0.34",

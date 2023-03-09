@@ -55,18 +55,22 @@
             <template v-slot:prepend>
               <v-list-item-action>
                 <v-checkbox-btn
-                  @click.stop=""
+                  @click.stop="completeToDo(todo.id)"
                   :model-value="todo.isComplete"
                 ></v-checkbox-btn>
               </v-list-item-action>
             </template>
             <template v-slot:append>
               <v-list-item-action end v-if="isDeleteToDoItemEnabled">
-                <v-btn
-                  @click.stop="deleteToDo(todo.index)"
-                  color="error"
-                  icon="mdi-trash-can"
-                ></v-btn>
+                <v-btn @click.stop="deleteToDo(todo.id)" color="error" icon>
+                  <v-icon>mdi-trash-can</v-icon>
+                  <v-tooltip
+                    location="bottom"
+                    :text="`Delete ${todo.id}`"
+                    activator="parent"
+                  >
+                  </v-tooltip>
+                </v-btn>
               </v-list-item-action>
             </template>
             <v-list-item-title>{{ todo.title }}</v-list-item-title>
@@ -91,8 +95,8 @@ const dialog = ref(false);
 const description = ref();
 const title = ref();
 
-const deleteToDo = (index) => {
-  store.removeToDo(index);
+const deleteToDo = (id) => {
+  store.removeToDo(id);
 };
 
 const save = () => {
