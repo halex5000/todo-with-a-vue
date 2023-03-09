@@ -146,6 +146,17 @@ export const useAppStore = defineStore("app", {
     removeToDo(id) {
       this.todos = this.todos.filter((todo) => todo.id !== id);
     },
+    toggleToDoComplete(id) {
+      this.todos = this.todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            isComplete: !todo.isComplete,
+          };
+        }
+        return todo;
+      });
+    },
     addTodo(todo) {
       let index = 0;
       if (this.todos && this.todos.length) {

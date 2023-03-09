@@ -55,7 +55,7 @@
             <template v-slot:prepend>
               <v-list-item-action>
                 <v-checkbox-btn
-                  @click.stop="completeToDo(todo.id)"
+                  @click="toggleToDoComplete(todo.id)"
                   :model-value="todo.isComplete"
                 ></v-checkbox-btn>
               </v-list-item-action>
@@ -97,6 +97,10 @@ const title = ref();
 
 const deleteToDo = (id) => {
   store.removeToDo(id);
+};
+
+const toggleToDoComplete = (id) => {
+  store.toggleToDoComplete(id);
 };
 
 const save = () => {

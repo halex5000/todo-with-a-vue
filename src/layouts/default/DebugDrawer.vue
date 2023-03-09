@@ -3,44 +3,48 @@
     theme="dark"
     v-if="isDebugEnabled"
     v-model="drawer"
-    location="bottom"
+    location="right"
+    width="600"
+    rail-width="50"
     :rail="rail"
     @click="rail = false"
     permanent
     class="bg-black"
   >
-    <v-card class="d-flex justify-center" title="Debug Panel">
+    <span style="writing-mode: vertical-rl" class="text-h6 ma-2" v-if="rail"
+      >Debug Panel</span
+    >
+    <v-card class="d-flex justify-center" title="Debug Panel" v-if="!rail">
       <template v-slot:append>
         <v-btn
           variant="text"
-          icon="mdi-chevron-down"
+          icon="mdi-chevron-right"
           v-if="!rail"
           @click.stop="rail = !rail"
         ></v-btn>
       </template>
     </v-card>
-    <v-container>
-      <v-toolbar elevation="5" color="blue-grey" dark>
+    <v-container v-if="!rail">
+      <v-toolbar elevation="5" dark>
         <v-toolbar-title class="text-center">Items in State</v-toolbar-title>
       </v-toolbar>
       <v-divider class="my-2"></v-divider>
       <v-item-group :items="stateItems">
-        <v-row>
-          <v-col v-for="item in stateItems" :key="item.key">
-            <v-item>
-              <v-card
-                width="300"
+        <v-col v-for="item in stateItems" :key="item.key">
+          <v-item>
+            <v-expansion-panels>
+              <v-expansion-panel
                 :title="item.key"
                 variant="outlined"
                 append-icon="mdi-state-machine"
               >
-                <v-card-text>
+                <v-expansion-panel-text>
                   <VueJsonPretty :data="item.value"></VueJsonPretty>
-                </v-card-text>
-              </v-card>
-            </v-item>
-          </v-col>
-        </v-row>
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+            </v-expansion-panels>
+          </v-item>
+        </v-col>
       </v-item-group>
     </v-container>
   </v-navigation-drawer>
