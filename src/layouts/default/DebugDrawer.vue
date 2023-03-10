@@ -4,19 +4,20 @@
     v-if="isDebugEnabled"
     v-model="drawer"
     location="right"
-    width="600"
+    :width="mobile ? 400 : '600'"
     rail-width="50"
     :rail="rail"
     @click="rail = false"
     permanent
     floating
+    density="compact"
   >
     <v-chip
       style="writing-mode: vertical-rl"
       class="bg-black text-h6 ma-2"
       v-if="rail"
       label
-      :size="mobile ? 'xx-large' : 'xx-large'"
+      size="xx-large"
       ><span class="pa-2">{{ mobile ? "Debug" : "Debug Panel" }}</span></v-chip
     >
     <v-card class="d-flex justify-center" title="Debug Panel" v-if="!rail">

@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer
     expand-on-hover
-    :rail="!dialog"
+    :rail="!dialog && !mobile"
     v-if="isLoginEnabled || isToDoListEnabled"
   >
     <v-list>
@@ -96,9 +96,11 @@
 <script setup>
 import { useLDFlag } from "launchdarkly-vue-client-sdk";
 import { useAppStore } from "@/store/app";
+import { useDisplay } from "vuetify";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 
+const { mobile } = useDisplay();
 const isToDoListEnabled = useLDFlag("to-do-list");
 const isLoginEnabled = useLDFlag("login");
 const router = useRouter();
