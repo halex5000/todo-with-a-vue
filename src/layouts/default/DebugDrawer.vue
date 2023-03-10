@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    theme="dark"
+    :theme="rail ? 'light' : 'dark'"
     v-if="isDebugEnabled"
     v-model="drawer"
     location="right"
@@ -9,10 +9,16 @@
     :rail="rail"
     @click="rail = false"
     permanent
+    floating
   >
-    <span style="writing-mode: vertical-rl" class="text-h6 ma-2" v-if="rail"
-      >Debug Panel</span
-    >
+    <div class="bg-black mt-5">
+      <span
+        style="writing-mode: vertical-rl"
+        class="bg-black text-h6 ma-2"
+        v-if="rail"
+        >Debug Panel</span
+      >
+    </div>
     <v-card class="d-flex justify-center" title="Debug Panel" v-if="!rail">
       <template v-slot:append>
         <v-btn
