@@ -11,14 +11,14 @@
     permanent
     floating
   >
-    <div class="bg-black mt-5">
-      <span
-        style="writing-mode: vertical-rl"
-        class="bg-black text-h6 ma-2"
-        v-if="rail"
-        >Debug Panel</span
-      >
-    </div>
+    <v-chip
+      style="writing-mode: vertical-rl"
+      class="bg-black text-h6 ma-2"
+      v-if="rail"
+      label
+      size="xx-large"
+      ><span class="pa-2">Debug Panel</span></v-chip
+    >
     <v-card class="d-flex justify-center" title="Debug Panel" v-if="!rail">
       <template v-slot:append>
         <v-btn
