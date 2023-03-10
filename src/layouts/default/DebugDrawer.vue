@@ -16,7 +16,7 @@
       class="bg-black text-h6 ma-2"
       v-if="rail"
       label
-      size="xx-large"
+      :size="mobile ? null : 'xx-large'"
       ><span class="pa-2">Debug Panel</span></v-chip
     >
     <v-card class="d-flex justify-center" title="Debug Panel" v-if="!rail">
@@ -59,6 +59,7 @@
 import { ref } from "vue";
 import { useLDFlag } from "launchdarkly-vue-client-sdk";
 import { useAppStore } from "@/store/app";
+import { useDisplay } from "vuetify";
 import { storeToRefs } from "pinia";
 import VueJsonPretty from "vue-json-pretty";
 import "vue-json-pretty/lib/styles.css";
@@ -68,4 +69,5 @@ const store = useAppStore();
 const { allState: stateItems } = storeToRefs(store);
 let drawer = true;
 let rail = ref(true);
+const { mobile } = useDisplay();
 </script>
