@@ -16,8 +16,8 @@
       class="bg-black text-h6 ma-2"
       v-if="rail"
       label
-      :size="mobile ? null : 'xx-large'"
-      ><span class="pa-2">Debug Panel</span></v-chip
+      :size="mobile ? 'xx-large' : 'xx-large'"
+      ><span class="pa-2">{{ mobile ? "Debug" : "Debug Panel" }}</span></v-chip
     >
     <v-card class="d-flex justify-center" title="Debug Panel" v-if="!rail">
       <template v-slot:append>
