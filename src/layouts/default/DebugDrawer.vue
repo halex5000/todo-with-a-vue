@@ -9,7 +9,6 @@
     :rail="rail"
     @click="rail = false"
     permanent
-    class="bg-black"
   >
     <span style="writing-mode: vertical-rl" class="text-h6 ma-2" v-if="rail"
       >Debug Panel</span
