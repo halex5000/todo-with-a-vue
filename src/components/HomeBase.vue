@@ -4,11 +4,7 @@
       <v-img
         contain
         :height="mobile ? 100 : 300"
-        :src="
-          theme.global.name.value === 'dark'
-            ? '/src/assets/dark-mode-logo.png'
-            : '/src/assets/light-mode-logo.png'
-        "
+        :src="theme.global.name.value === 'dark' ? darkModeLogo : lightModeLogo"
       />
       <br />
       <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
@@ -80,6 +76,8 @@ import { useLDFlag } from "launchdarkly-vue-client-sdk";
 import { useDisplay } from "vuetify/lib/framework.mjs";
 import { useTheme } from "vuetify/lib/framework.mjs";
 import LinkCarousel from "./LinkCarousel.vue";
+import darkModeLogo from "@/assets/dark-mode-logo.png";
+import lightModeLogo from "@/assets/light-mode-logo.png";
 
 const { mobile } = useDisplay();
 const theme = useTheme();
