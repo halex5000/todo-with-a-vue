@@ -1,5 +1,5 @@
 <template>
-  <v-btn icon="mdi-theme-light-dark" @click="toggleTheme">toggle theme</v-btn>
+  <v-btn icon="mdi-theme-light-dark" @click="toggleTheme" />
 </template>
 
 <script setup>

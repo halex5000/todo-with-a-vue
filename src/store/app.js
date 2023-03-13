@@ -8,7 +8,7 @@ const starterTodos = [
     description: "We need a new Vue application to keep track of ToDos",
     isComplete: true,
     ordinalNumber: 0,
-    id: "1234",
+    id: nanoid(),
   },
   {
     title: "Capture browser info",
@@ -16,14 +16,14 @@ const starterTodos = [
       "To support debugging and advanced targeting, we need to be able to capture browser info",
     isComplete: true,
     ordinalNumber: 2,
-    id: "2345",
+    id: nanoid(),
   },
   {
     title: "Create a base list of ToDos",
     description: "Our project roadmap should be in our ToDo list",
     isComplete: true,
     ordinalNumber: 1,
-    id: "3456",
+    id: nanoid(),
   },
   {
     title: "Provide the ability to Login",
@@ -31,21 +31,21 @@ const starterTodos = [
       "To support delivering features to specific users, we need them to be able to login",
     isComplete: true,
     ordinalNumber: 3,
-    id: "4567",
+    id: nanoid(),
   },
   {
     title: "Support ToDo item creation",
     description: "Users will need to be able to add their own ToDo list items",
     isComplete: true,
     ordinalNumber: 4,
-    id: "5678",
+    id: nanoid(),
   },
   {
     title: "Support ToDo item deletion",
     description: "Users may want to delete ToDo items at times",
     isComplete: true,
     ordinalNumber: 5,
-    id: "6789",
+    id: nanoid(),
   },
   {
     title: "Validate input when creating a ToDo item",
@@ -53,7 +53,7 @@ const starterTodos = [
       "To get meaningful data, we'll need some validation on user input",
     isComplete: false,
     ordinalNumber: 7,
-    id: "7891",
+    id: nanoid(),
   },
   {
     title: "Support local storage of ToDo list",
@@ -61,23 +61,7 @@ const starterTodos = [
       "Users want persistent ToDo lists and local storage could help support this",
     isComplete: false,
     ordinalNumber: 6,
-    id: "8910",
-  },
-  {
-    title: "Support remote storage of ToDo List",
-    description:
-      "Users may want persistent ToDo lists across their devices and to support mobile, we'll need a remote storage facility for ToDo items",
-    isComplete: false,
-    ordinalNumber: 9,
-    id: "9101",
-  },
-  {
-    title: "Migrate to trusted auth provider",
-    description:
-      "A trusted auth provider will give us a common mechanism for login and allow us to partition users' lists from one another",
-    isComplete: false,
-    ordinalNumber: 8,
-    id: "1011",
+    id: nanoid(),
   },
 ];
 

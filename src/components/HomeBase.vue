@@ -3,17 +3,29 @@
     <v-responsive class="d-flex align-center text-center fill-height">
       <v-img
         contain
-        height="300"
-        src="@/assets/logo.png"
+        :height="mobile ? 100 : 300"
+        :src="
+          theme.global.name.value === 'dark'
+            ? '/src/assets/dark-mode-logo.png'
+            : '/src/assets/light-mode-logo.png'
+        "
       />
-      <br/>
+      <br />
       <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
 
       <h1 class="text-h2 font-weight-bold">Dark Launching with a Vue</h1>
 
+      <h4>{{ store?.user?.username }}</h4>
+
       <div class="py-14" />
 
-      <v-row class="d-flex align-center justify-center">
+      <v-row
+        v-if="carouselItems && carouselItems.length"
+        class="d-flex align-center justify-center"
+      >
+        <link-carousel />
+      </v-row>
+      <v-row v-else class="d-flex align-center justify-center">
         <v-col cols="auto">
           <v-btn
             href="https://docs.launchdarkly.com/sdk/client-side"
@@ -22,11 +34,7 @@
             target="_blank"
             variant="text"
           >
-            <v-icon
-              icon="mdi-code-braces-box"
-              size="xx-large"
-              start
-            />
+            <v-icon icon="mdi-code-braces-box" size="xx-large" start />
 
             SDKs
           </v-btn>
@@ -42,11 +50,7 @@
             target="_blank"
             variant="flat"
           >
-            <v-icon
-              icon="mdi-school"
-              size="xx-large"
-              start
-            />
+            <v-icon icon="mdi-school" size="xx-large" start />
 
             LaunchDarkly Academy
           </v-btn>
@@ -60,11 +64,7 @@
             target="_blank"
             variant="text"
           >
-            <v-icon
-              icon="mdi-text-box-search"
-              size="xx-large"
-              start
-            />
+            <v-icon icon="mdi-text-box-search" size="xx-large" start />
 
             Docs
           </v-btn>
@@ -75,5 +75,16 @@
 </template>
 
 <script setup>
-  //
+import { useAppStore } from "@/store/app";
+import { useLDFlag } from "launchdarkly-vue-client-sdk";
+import { useDisplay } from "vuetify/lib/framework.mjs";
+import { useTheme } from "vuetify/lib/framework.mjs";
+import LinkCarousel from "./LinkCarousel.vue";
+
+const { mobile } = useDisplay();
+const theme = useTheme();
+
+const store = useAppStore();
+
+const carouselItems = useLDFlag("carousel-items");
 </script>
