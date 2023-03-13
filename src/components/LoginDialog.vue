@@ -57,7 +57,7 @@ const client = useLDClient();
 const login = (toggleLoginDialog) => {
   client.identify({
     anonymous: false,
-    key: username,
+    key: username.value,
   });
   if (toggleLoginDialog) toggleLoginDialog();
   setTimeout(() => {
