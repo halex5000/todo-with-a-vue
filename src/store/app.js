@@ -78,6 +78,7 @@ export const useAppStore = defineStore("app", {
     count: 0,
     todos: [...starterTodos],
     user: null,
+    debugAllowList: [],
   }),
   getters: {
     sortedTodos: (state) =>
@@ -92,6 +93,7 @@ export const useAppStore = defineStore("app", {
         .filter((entry) => {
           const [key, value] = entry;
           return (
+            state.debugAllowList.includes(key) &&
             typeof value !== "function" &&
             key.match(/^[a-zA-Z0-9]/i) &&
             !key.startsWith("allState")
@@ -152,6 +154,9 @@ export const useAppStore = defineStore("app", {
         isComplete: false,
         ordinalNumber: index,
       });
+    },
+    updateAllowList(allowList) {
+      this.debugAllowList = allowList;
     },
   },
 });

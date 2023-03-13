@@ -10,8 +10,10 @@
       <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
 
       <h1 class="text-h2 font-weight-bold">Dark Launching with a Vue</h1>
-
-      <h4>{{ store?.user?.username }}</h4>
+      <div class="py-2" />
+      <div class="text-h4 mb-n1">
+        {{ store?.user?.username }}
+      </div>
 
       <div class="py-14" />
 

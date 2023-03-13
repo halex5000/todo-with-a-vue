@@ -40,6 +40,7 @@
 <script setup>
 import { useAppStore } from "@/store/app";
 import { ref } from "vue";
+import { useLDClient } from "launchdarkly-vue-client-sdk";
 
 defineProps({
   toggleLoginDialog: Function,
@@ -51,7 +52,13 @@ const secret = ref(true);
 
 const store = useAppStore();
 
+const client = useLDClient();
+
 const login = (toggleLoginDialog) => {
+  client.identify({
+    anonymous: false,
+    key: username,
+  });
   if (toggleLoginDialog) toggleLoginDialog();
   setTimeout(() => {
     store.login({ username: username.value });
