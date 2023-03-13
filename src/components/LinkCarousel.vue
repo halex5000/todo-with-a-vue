@@ -10,7 +10,7 @@
       >
         <v-icon
           class="mb-5"
-          color="success"
+          color="primary"
           :icon="item.icon"
           size="112"
         ></v-icon>

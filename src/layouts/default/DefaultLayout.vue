@@ -13,6 +13,22 @@
     <default-view />
     <debug-drawer v-model="debugPanel" :toggleDebugDrawer="toggleDebugDrawer" />
     <user-agent />
+    <v-container class="d-flex align-center text-center fill-height">
+      <v-row>
+        <v-col>
+          <v-chip
+            class="ma-2"
+            closable
+            color="primary"
+            close-icon="mdi-delete"
+            prepend-icon="mdi-checkbox-marked-circle"
+            :model-value="true"
+          >
+            Feature Flags Powered by LaunchDarkly Vue SDK
+          </v-chip></v-col
+        ></v-row
+      >
+    </v-container>
   </v-app>
 </template>
 
