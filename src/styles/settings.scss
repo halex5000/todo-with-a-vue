@@ -8,3 +8,54 @@
 // @use 'vuetify' with (
 //   $color-pack: false
 // );
+
+$buch: "Buch" !default;
+$audimat: "Audimat" !default;
+$kraftig: "Kraftig" !default;
+
+@use "sass:map";
+
+@use "vuetify/settings" with (
+  $body-font-family: $buch,
+  $heading-font-family: $audimat,
+  $typography: (
+    h2: (
+      font-family: $audimat,
+    ),
+    h5: (
+      font-family: $kraftig,
+    ),
+    h6: (
+      font-family: $kraftig,
+    ),
+    body1: (
+      font-family: $buch,
+    ),
+  )
+);
+
+@font-face {
+  font-family: "Audimat";
+  src: url(../public/fonts/Audimat3000-Regulier.woff2) format("woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Kraftig";
+  src: url(../public/fonts/Sohne-Kraftig.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Buch";
+  src: local("Buch"), url(../public/fonts/Sohne-Buch.woff2) format("woff2");
+  font-weight: normal;
+}
+
+.heroText {
+  background: -webkit-linear-gradient(#eee, #333);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: #9eadf1;
+  background-image: linear-gradient(90deg, #edf4c9, #9eadf1);
+}

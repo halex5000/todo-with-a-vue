@@ -3,13 +3,15 @@
     <v-responsive class="d-flex align-center text-center fill-height">
       <v-img
         contain
-        :height="mobile ? 100 : 300"
+        :height="mobile ? 100 : 250"
         :src="theme.global.name.value === 'dark' ? darkModeLogo : lightModeLogo"
       />
       <br />
       <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
 
-      <h1 class="text-h2 font-weight-bold">Dark Launching with a Vue</h1>
+      <h1 class="text-h2 heroText font-weight-bold">
+        Dark Launching with a Vue
+      </h1>
       <div class="py-2" />
       <div class="text-h4 mb-n1">
         {{ store?.user?.username }}
